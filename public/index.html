@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <!-- normalize css -->
+  <link rel="stylesheet" href="resources/normalize.css">
+  <!-- font -->
+  <link rel="stylesheet" href="resources/font.css">
+  <!-- font awesome cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <!-- magnific popup -->
+  <link rel="stylesheet" href="resources/Magnific-Popup-master/dist/magnific-popup.css">
+  <!-- owl carousel -->
+  <link rel="stylesheet" href="resources/OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
+  <link rel="stylesheet" href="resources/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
+  <!-- animate css -->
+  <link rel="stylesheet" href="resources/animate.css-main/animate.css">
+
+  <title>React App</title>
+</head>
+
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+
+
+
+  <!-- jQuery -->
+  <script src="resources/jquery-3.5.1.js"></script>
+  <!-- magnific popup -->
+  <script src="resources/Magnific-Popup-master/dist/jquery.magnific-popup.js"></script>
+  <!-- owl carousel -->
+  <script src="resources/OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
+  <!-- wow js -->
+  <script src="resources/WOW-master/dist/wow.js"></script>
+
+
+
+
+  <script>
+
+
+    $(document).ready(function () {
+
+      // wow initiation
+      new WOW().init();
+
+      // navigation bar toggle
+      $('#navbar-toggler').click(function () {
+        $('.navbar-collapse').slideToggle(400);
+      });
+
+      // navbar bg change on scroll
+      $(window).scroll(function () {
+        let pos = $(window).scrollTop();
+        if (pos >= 100) {
+          $('.navbar').addClass('cng-navbar');
+        } else {
+          $('.navbar').removeClass('cng-navbar');
+        }
+      });
+
+      // sample video popup
+      $(document).ready(function () {
+        $('.popup-youtube').magnificPopup({
+          disableOn: 700,
+          type: 'iframe',
+          mainClass: 'mfp-fade',
+          removalDelay: 160,
+          preloader: false,
+
+          fixedContentPos: false
+        });
+      });
+
+      // team carousel 
+      $('.team .owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        dots: true,
+        nav: false,
+        responsiveClass: true,
+        responsive: {
+          0: {
+            items: 1
+          },
+          600: {
+            items: 2
+          },
+          1000: {
+            items: 3
+          }
+        }
+      });
+
+      // faq accordion
+      $('.faq-head').each(function () {
+        $(this).click(function () {
+          $(this).next().toggleClass('show-faq-content');
+          let icon = $(this).children('span').children("i").attr('class');
+
+          if (icon == "fas fa-plus") {
+            $(this).children('span').html('<i class = "fas fa-minus"></i>');
+          } else {
+            $(this).children('span').html('<i class = "fas fa-plus"></i>');
+          }
+        });
+      });
+
+      // testimonial carousel 
+      $('.testimonial .owl-carousel').owlCarousel({
+        loop: true,
+        autoplay: true,
+        dots: true,
+        nav: false,
+        items: 1
+      });
+
+    });
+  </script>
+</body>
+
+</html>
